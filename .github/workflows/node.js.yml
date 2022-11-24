@@ -50,7 +50,7 @@ jobs:
     - run: npm install -g npm
     - run: npm install
     - run: |
-        PGPASSWORD=buhle123 psql -h localhost -U salon_admin -d salon_test -a -f './sql/tables.sql'
+        PGPASSWORD=salon123 psql -h localhost -U salon_admin -d salon_test -a -f './sql/tables.sql'
     - run: npm run build --if-present
     - run: npm test
     env: 
