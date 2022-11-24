@@ -6,7 +6,6 @@ create table client (
     phone_number varchar(10) not null
 );
 
-GRANT ALL PRIVILEGES on TABLE client TO salon_admin;
 
 
 
@@ -22,9 +21,26 @@ create table stylist (
 	id serial not null primary key,
 	stylist_name text not null,
     stylist_last_name text not null,
-    phone_number int not null,
+    phone_number varchar(10) not null,
     commission_percentage NUMERIC(3,2)
 );
+
+create table booking(
+    id serial primary key not null,
+    client_id int not null,
+    treatment_id int not null,
+    stylist_id int not null,
+    booking_date date not null,
+    booking_time time not null,
+    foreign key (client_id) references client(id) ,
+    foreign key (treatment_id) references treatment(id),
+    foreign key (stylist_id) references stylist(id)
+);
+
+
+
+
+
 
 
 
@@ -54,3 +70,9 @@ insert into client (first_name,last_name,phone_number) values('Kaboentle','Bee',
 insert into client (first_name,last_name,phone_number) values('Boitumelo','Bambo','0798851005');
 insert into client (first_name,last_name,phone_number) values('Nare','Moloto','0797891005');
 insert into client (first_name,last_name,phone_number) values('Lebogang','Ramoba','0784561230');
+
+-- inserting stylists
+insert into stylist (stylist_name,stylist_last_name,phone_number,commission_percentage) values('Paballo','Semi','0784516098',0.09);
+insert into stylist (stylist_name,stylist_last_name,phone_number,commission_percentage) values('Tetelo','Sithole','0845789601',0.19);
+insert into stylist (stylist_name,stylist_last_name,phone_number,commission_percentage) values('Fifi','Mphahlele','086415796',0.07);
+insert into stylist (stylist_name,stylist_last_name,phone_number,commission_percentage) values('Katlego','Danke','0785554890',0.15);
