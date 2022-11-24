@@ -39,22 +39,6 @@ create table booking(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- inserting treatments
 insert into treatment(treatment_type,code,price) values('Pedicure','pedi',175);
 insert into treatment(treatment_type,code,price) values('Manicure','mani',215);
